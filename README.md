@@ -1,2 +1,2 @@
 # react-ts-build-environment-practice
-React+Typescript项目环境
+搭建React+Typescript项目环境练习

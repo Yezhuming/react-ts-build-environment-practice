@@ -1,0 +1,18 @@
+{
+  "name": "react-ts-build-environment-practice",
+  "version": "1.0.0",
+  "description": "搭建React+Typescript项目环境练习",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yezhuming/react-ts-build-environment-practice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yezhuming/react-ts-build-environment-practice/issues"
+  },
+  "homepage": "https://github.com/Yezhuming/react-ts-build-environment-practice#readme"
+}
