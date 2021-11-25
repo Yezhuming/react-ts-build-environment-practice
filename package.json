@@ -3,7 +3,30 @@
   "version": "1.0.0",
   "description": "搭建React+Typescript项目环境练习",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "lint-staged",
+    "lint-eslint": "eslint -c .eslintrc.js --ext .ts,.tsx,.js src",
+    "lint-stylelint": "stylelint --config .stylelintrc.js src/**/*.{less,css,scss}",
+    "prepare": "husky install",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint --config .commitlintrc.js -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": [
+      "eslint --config .eslintrc.js"
+    ],
+    "*.{css,less,scss}": [
+      "stylelint --config .stylelintrc.js"
+    ],
+    "*.{ts,tsx,js,json,html,yml,css,less,scss,md}": [
+      "prettier --write"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Yezhuming/react-ts-build-environment-practice.git"
@@ -16,17 +39,28 @@
   },
   "homepage": "https://github.com/Yezhuming/react-ts-build-environment-practice#readme",
   "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
-    "eslint": "^7.0.0",
+    "eslint": "^7.22.0",
     "eslint-config-airbnb": "^19.0.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-promise": "^5.1.1",
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-unicorn": "^39.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "prettier": "^2.4.1",
+    "stylelint": "^13.12.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^21.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
+    "stylelint-order": "^4.1.0",
     "typescript": "^4.5.2"
   }
 }
