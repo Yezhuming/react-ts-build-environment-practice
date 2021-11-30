@@ -44,6 +44,10 @@ module.exports = {
         js: 'never',
       },
     ],
+    'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
     'unicorn/prefer-module': OFF,
+    'unicorn/prevent-abbreviations': OFF,
+    '@typescript-eslint/no-var-requires': OFF,
+    'global-require': OFF,
   },
 };

@@ -4,6 +4,8 @@
   "description": "搭建React+Typescript项目环境练习",
   "main": "index.js",
   "scripts": {
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts/config/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config ./scripts/config/webpack.prod.js",
     "lint": "lint-staged",
     "lint-eslint": "eslint -c .eslintrc.js --ext .ts,.tsx,.js src",
     "lint-stylelint": "stylelint --config .stylelintrc.js src/**/*.{less,css,scss}",
@@ -41,8 +43,12 @@
   "devDependencies": {
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
+    "@jakub300/postcss-normalize": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^3.6.0",
     "eslint": "^7.22.0",
     "eslint-config-airbnb": "^19.0.1",
     "eslint-config-prettier": "^8.3.0",
@@ -52,15 +58,32 @@
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-unicorn": "^39.0.0",
+    "html-webpack-plugin": "^4.3.0",
     "husky": "^7.0.4",
+    "less-loader": "^6.2.0",
     "lint-staged": "^12.1.2",
+    "postcss-flexbugs-fixes": "^4.2.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-normalize": "^9.0.0",
+    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.4.1",
+    "style-loader": "^1.2.1",
     "stylelint": "^13.12.0",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^21.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
     "stylelint-order": "^4.1.0",
-    "typescript": "^4.5.2"
-  }
+    "typescript": "^4.5.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.0.9"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "ie >= 9",
+    "not op_mini all"
+  ]
 }
