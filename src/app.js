@@ -1,9 +1,7 @@
-import './app.less';
-import doge from './assets/images/doge.jpg';
+import React from 'react';
 
-const root = document.querySelector('#root');
-root.innerHTML = 'hello, webpack!';
+const App = function () {
+  return <div className="App">Hello World</div>;
+};
 
-const img = document.createElement('img');
-img.setAttribute('src', doge);
-root.append(img);
+export default App;

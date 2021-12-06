@@ -35,7 +35,7 @@ const getCssLoaders = importLoaders => [
 
 module.exports = {
   entry: {
-    app: path.resolve(PROJECT_PATH, './src/app.js'),
+    app: path.resolve(PROJECT_PATH, './src/index.js'),
   },
   output: {
     filename: `js/[name]${isDev ? '' : '.[hash:8]'}.js`,
