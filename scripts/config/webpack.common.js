@@ -35,11 +35,19 @@ const getCssLoaders = importLoaders => [
 
 module.exports = {
   entry: {
-    app: path.resolve(PROJECT_PATH, './src/index.js'),
+    app: path.resolve(PROJECT_PATH, './src/index.tsx'),
   },
   output: {
     filename: `js/[name]${isDev ? '' : '.[hash:8]'}.js`,
     path: path.resolve(PROJECT_PATH, './dist'),
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js', '.json'],
+    alias: {
+      Src: path.resolve(PROJECT_PATH, './src'),
+      Components: path.resolve(PROJECT_PATH, './src/components'),
+      Utils: path.resolve(PROJECT_PATH, './src/utils'),
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
