@@ -67,6 +67,12 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(tsx?|js)$/,
+        loader: 'babel-loader',
+        options: { cacheDirectory: true },
+        exclude: /node_modules/,
+      },
+      {
         test: /\.css$/,
         use: getCssLoaders(1),
       },
