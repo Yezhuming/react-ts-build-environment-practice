@@ -1,5 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const WebpackBar = require('webpackbar');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 const { PROJECT_PATH, isDev } = require('../constant');
 
 const getCssLoaders = importLoaders => [
@@ -49,7 +53,12 @@ module.exports = {
       Utils: path.resolve(PROJECT_PATH, './src/utils'),
     },
   },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+  },
   plugins: [
+    // 将打包后的js自动引入到html中
     new HtmlWebpackPlugin({
       template: path.resolve(PROJECT_PATH, './public/index.html'),
       filename: 'index.html',
@@ -71,6 +80,30 @@ module.exports = {
             useShortDoctype: true,
           },
     }),
+    // 将public文件夹里所有文件复制到dist
+    new CopyPlugin({
+      patterns: [
+        {
+          context: path.resolve(PROJECT_PATH, './public'),
+          from: '*',
+          to: path.resolve(PROJECT_PATH, './dist'),
+          toType: 'dir',
+        },
+      ],
+    }),
+    // 编译进度条
+    new WebpackBar({
+      name: isDev ? '正在启动' : '正在打包',
+      color: '#fa8c16',
+    }),
+    // 打包或启动本地服务时给予错误提示
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: path.resolve(PROJECT_PATH, './tsconfig.json'),
+      },
+    }),
+    // 加快二次编译速度
+    new HardSourceWebpackPlugin(),
   ],
   module: {
     rules: [

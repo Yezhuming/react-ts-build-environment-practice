@@ -64,8 +64,11 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-var-requires': OFF,
+    '@typescript-eslint/explicit-function-return-type': OFF,
+    '@typescript-eslint/explicit-module-boundary-types': OFF,
     'global-require': OFF,
 
     'react/jsx-filename-extension': [ERROR, { extensions: ['.tsx', 'ts', '.jsx', 'js'] }],
+    'react/function-component-definition': OFF,
   },
 };
