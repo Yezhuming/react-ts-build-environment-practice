@@ -53,9 +53,16 @@ module.exports = {
       Utils: path.resolve(PROJECT_PATH, './src/utils'),
     },
   },
+  // 剥离不需要改动的依赖模块，减少bundle大小
   externals: {
     react: 'React',
     'react-dom': 'ReactDOM',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      name: true,
+    },
   },
   plugins: [
     // 将打包后的js自动引入到html中

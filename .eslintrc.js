@@ -46,6 +46,7 @@ module.exports = {
       },
     ],
     'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
+    'import/prefer-default-export': OFF,
     'unicorn/prefer-module': OFF,
     'unicorn/prevent-abbreviations': OFF,
     'unicorn/filename-case': [
@@ -66,7 +67,9 @@ module.exports = {
     '@typescript-eslint/no-var-requires': OFF,
     '@typescript-eslint/explicit-function-return-type': OFF,
     '@typescript-eslint/explicit-module-boundary-types': OFF,
+
     'global-require': OFF,
+    semi: ERROR,
 
     'react/jsx-filename-extension': [ERROR, { extensions: ['.tsx', 'ts', '.jsx', 'js'] }],
     'react/function-component-definition': OFF,
