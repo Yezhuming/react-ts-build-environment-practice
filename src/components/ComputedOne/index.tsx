@@ -1,5 +1,6 @@
 import React from 'react';
 import { add } from 'Utils/math';
+import './index.less';
 
 interface IProps {
   a: number;
