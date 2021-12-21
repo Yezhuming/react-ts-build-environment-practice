@@ -4,10 +4,11 @@ const CopyPlugin = require('copy-webpack-plugin');
 const WebpackBar = require('webpackbar');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { PROJECT_PATH, isDev } = require('../constant');
 
 const getCssLoaders = importLoaders => [
-  'style-loader',
+  isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
   {
     loader: 'css-loader',
     options: {
@@ -52,6 +53,7 @@ module.exports = {
       Src: path.resolve(PROJECT_PATH, './src'),
       Components: path.resolve(PROJECT_PATH, './src/components'),
       Utils: path.resolve(PROJECT_PATH, './src/utils'),
+      Assets: path.resolve(PROJECT_PATH, './src/assets'),
     },
   },
   // 剥离不需要改动的依赖模块，减少bundle大小
@@ -160,7 +162,7 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 10 * 1024, // 小于10KB的图片会被转成base64
-              name: '[name].[contenthash:8].[ext]', //
+              name: '[name].[hash:8].[ext]', //
               outputPath: 'assets/images',
             },
           },
@@ -172,7 +174,7 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              name: '[name].[contenthash:8].[ext]',
+              name: '[name].[hash:8].[ext]',
               outputPath: 'assets/fonts',
             },
           },

@@ -45,8 +45,9 @@ module.exports = {
         js: 'never',
       },
     ],
-    'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
     'import/prefer-default-export': OFF,
+    'import/no-extraneous-dependencies': [ERROR, { devDependencies: true }],
+    'import/no-import-module-exports': OFF,
 
     'unicorn/numeric-separators-style': OFF,
     'unicorn/better-regex': OFF,

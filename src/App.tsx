@@ -1,4 +1,5 @@
 import React, { useState, Suspense } from 'react';
+import doge from 'Assets/images/doge.jpg';
 
 const ComputedOne = React.lazy(() => import('Components/ComputedOne'));
 const ComputedTwo = React.lazy(
@@ -19,6 +20,7 @@ const App = () => {
         <button type="button" onClick={() => setShowTwo(true)}>
           显示Two
         </button>
+        <img src={doge} alt="" />
       </Suspense>
     </div>
   );
