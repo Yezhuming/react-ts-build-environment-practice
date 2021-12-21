@@ -1,5 +1,6 @@
 import React from 'react';
 import { add } from 'Utils/math';
+import qs from 'query-string';
 
 interface IProps {
   a: number;
